@@ -5,8 +5,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hainayanda/Builder.git",
       "state" : {
-        "revision" : "01268107ca1754c200453446699092451ed340f5",
-        "version" : "1.0.4"
+        "revision" : "135f18c811c2e75f4a2fc8aae5e02c6c37d8d672",
+        "version" : "1.0.5"
+      }
+    },
+    {
+      "identity" : "chary",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hainayanda/Chary.git",
+      "state" : {
+        "revision" : "afcddefdd56cbd6df198382bd2c65c7998f8d240",
+        "version" : "1.0.2"
       }
     },
     {
@@ -14,26 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hainayanda/Clavier.git",
       "state" : {
-        "revision" : "fde955d2d64a1ead83f7e2275d2bf3912a62ac5e",
-        "version" : "2.0.1"
-      }
-    },
-    {
-      "identity" : "cwlcatchexception",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattgallagher/CwlCatchException.git",
-      "state" : {
-        "revision" : "35f9e770f54ce62dd8526470f14c6e137cef3eea",
-        "version" : "2.1.1"
-      }
-    },
-    {
-      "identity" : "cwlpreconditiontesting",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/mattgallagher/CwlPreconditionTesting.git",
-      "state" : {
-        "revision" : "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
-        "version" : "2.1.0"
+        "revision" : "acd31f2629d20b2df77ccb440ab2cb6bc2f7cfc6",
+        "version" : "2.0.2"
       }
     },
     {
@@ -41,26 +32,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hainayanda/Draftsman",
       "state" : {
-        "revision" : "69aea89f0be8584dc4d5f19e6bf828a3d2af2518",
-        "version" : "3.0.4"
+        "revision" : "4f5560ff7073e23a6d7e79680a736ff81944ca57",
+        "version" : "3.0.6"
       }
     },
     {
-      "identity" : "nimble",
+      "identity" : "pharos",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Quick/Nimble.git",
+      "location" : "https://github.com/hainayanda/Pharos",
       "state" : {
-        "revision" : "1f3bde57bde12f5e7b07909848c071e9b73d6edc",
-        "version" : "10.0.0"
-      }
-    },
-    {
-      "identity" : "quick",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Quick/Quick.git",
-      "state" : {
-        "revision" : "f9d519828bb03dfc8125467d8f7b93131951124c",
-        "version" : "5.0.1"
+        "revision" : "cc7f92b5f907131a61999d0674daaffe6129ddcb",
+        "version" : "2.3.5"
       }
     }
   ],

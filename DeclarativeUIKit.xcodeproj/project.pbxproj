@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB2A58EC286D954600D749C1 /* Pharos in Frameworks */ = {isa = PBXBuildFile; productRef = BB2A58EB286D954600D749C1 /* Pharos */; };
 		BBA414AB285ACE60008BCAB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AA285ACE60008BCAB6 /* AppDelegate.swift */; };
 		BBA414AD285ACE60008BCAB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AC285ACE60008BCAB6 /* SceneDelegate.swift */; };
 		BBA414AF285ACE60008BCAB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AE285ACE60008BCAB6 /* ViewController.swift */; };
@@ -62,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA414DC285ACF50008BCAB6 /* Draftsman in Frameworks */,
+				BB2A58EC286D954600D749C1 /* Pharos in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +155,7 @@
 			name = DeclarativeUIKit;
 			packageProductDependencies = (
 				BBA414DB285ACF50008BCAB6 /* Draftsman */,
+				BB2A58EB286D954600D749C1 /* Pharos */,
 			);
 			productName = DeclarativeUIKit;
 			productReference = BBA414A7285ACE60008BCAB6 /* DeclarativeUIKit.app */;
@@ -228,6 +231,7 @@
 			mainGroup = BBA4149E285ACE60008BCAB6;
 			packageReferences = (
 				BBA414DA285ACF50008BCAB6 /* XCRemoteSwiftPackageReference "Draftsman" */,
+				BB2A58EA286D954600D749C1 /* XCRemoteSwiftPackageReference "Pharos" */,
 			);
 			productRefGroup = BBA414A8285ACE60008BCAB6 /* Products */;
 			projectDirPath = "";
@@ -614,6 +618,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BB2A58EA286D954600D749C1 /* XCRemoteSwiftPackageReference "Pharos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hainayanda/Pharos";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		BBA414DA285ACF50008BCAB6 /* XCRemoteSwiftPackageReference "Draftsman" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hainayanda/Draftsman";
@@ -625,6 +637,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BB2A58EB286D954600D749C1 /* Pharos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BB2A58EA286D954600D749C1 /* XCRemoteSwiftPackageReference "Pharos" */;
+			productName = Pharos;
+		};
 		BBA414DB285ACF50008BCAB6 /* Draftsman */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BBA414DA285ACF50008BCAB6 /* XCRemoteSwiftPackageReference "Draftsman" */;
