@@ -8,24 +8,38 @@
 import Foundation
 import Draftsman
 import UIKit
+import Pharos
+import Builder
 
-class TodoListViewController: UIViewController, Planned {
+class TodoListViewController: UIViewController, Planned, ObjectRetainer {
+    
+    lazy var lists: [ListComponent] = [autoRemoveListComponent(text: "Test 1"), autoRemoveListComponent(text: "Test 1")]
+    {
+        didSet {
+            applyPlan()
+        }
+    }
     
     lazy var addListField: AddListField = AddListField()
+    lazy var scrollView: UIScrollView = UIScrollView()
+    lazy var stackView: UIStackView = builder(UIStackView(axis: .vertical, distribution: .equalSpacing, spacing: 8))
+        .layoutMargins(UIEdgeInsets(insets: 24))
+        .isLayoutMarginsRelativeArrangement(true)
+        .build()
     
     @LayoutPlan
     var viewPlan: ViewPlan {
-        UIScrollView().drf
-            .edges.equal(with: .parent)
+        scrollView.drf
+            .top.horizontal.equal(with: .parent)
+            .bottom.equal(to: addListField.drf.top)
             .insert {
-                UIStackView(axis: .vertical, distribution: .equalSpacing, spacing: 8).drf
+                stackView.drf
                     .width.equal(with: .parent)
                     .edges.equal(with: .parent)
-                    .builder.layoutMargins(UIEdgeInsets(horizontal: 24, top: 24))
-                    .isLayoutMarginsRelativeArrangement(true)
-                    .drf.insertStacked {
-                        ListComponent(text: "Test 1")
-                        ListComponent(text: "Test 2")
+                    .insertStacked {
+                        for list in lists {
+                            list
+                        }
                     }
             }
         addListField.drf
@@ -38,5 +52,23 @@ class TodoListViewController: UIViewController, Planned {
         view.backgroundColor = .white
         title = "TODO LIST"
         applyPlan()
+        addListField.$textReturned
+            .compactMapped { $0 }
+            .ignore { $0.new.isEmpty }
+            .whenDidSet { [unowned self] changes in
+                self.lists.append(autoRemoveListComponent(text: changes.new))
+            }
+            .observe(on: .main)
+            .retained(by: self)
+    }
+    
+    func autoRemoveListComponent(text: String) -> ListComponent {
+        let listComponent = ListComponent(text: text)
+        listComponent.whenRemoveDidTap { [unowned self, weak listComponent] _ in
+            self.lists.removeAll { $0 == listComponent }
+        }
+        .observe(on: .main)
+        .retained(by: self)
+        return listComponent
     }
 }
