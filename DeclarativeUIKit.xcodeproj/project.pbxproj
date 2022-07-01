@@ -12,6 +12,7 @@
 		BBA2E6E3286F58310055AE11 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2E6E2286F58310055AE11 /* TodoListViewController.swift */; };
 		BBA2E6E5286F59CF0055AE11 /* ListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2E6E4286F59CF0055AE11 /* ListComponent.swift */; };
 		BBA2E6E7286F5BE60055AE11 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2E6E6286F5BE60055AE11 /* CheckButton.swift */; };
+		BBA2E6E9286F64C40055AE11 /* AddListField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2E6E8286F64C40055AE11 /* AddListField.swift */; };
 		BBA414AB285ACE60008BCAB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AA285ACE60008BCAB6 /* AppDelegate.swift */; };
 		BBA414AD285ACE60008BCAB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AC285ACE60008BCAB6 /* SceneDelegate.swift */; };
 		BBA414AF285ACE60008BCAB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AE285ACE60008BCAB6 /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		BBA2E6E2286F58310055AE11 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		BBA2E6E4286F59CF0055AE11 /* ListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListComponent.swift; sourceTree = "<group>"; };
 		BBA2E6E6286F5BE60055AE11 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
+		BBA2E6E8286F64C40055AE11 /* AddListField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListField.swift; sourceTree = "<group>"; };
 		BBA414A7285ACE60008BCAB6 /* DeclarativeUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeclarativeUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA414AA285ACE60008BCAB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA414AC285ACE60008BCAB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				BBA2E6E2286F58310055AE11 /* TodoListViewController.swift */,
 				BBA2E6E4286F59CF0055AE11 /* ListComponent.swift */,
 				BBA2E6E6286F5BE60055AE11 /* CheckButton.swift */,
+				BBA2E6E8286F64C40055AE11 /* AddListField.swift */,
 			);
 			path = PartTwo;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA414AF285ACE60008BCAB6 /* ViewController.swift in Sources */,
+				BBA2E6E9286F64C40055AE11 /* AddListField.swift in Sources */,
 				BBA2E6E3286F58310055AE11 /* TodoListViewController.swift in Sources */,
 				BBA414AB285ACE60008BCAB6 /* AppDelegate.swift in Sources */,
 				BBA2E6DF286F55080055AE11 /* PartOneViewController.swift in Sources */,

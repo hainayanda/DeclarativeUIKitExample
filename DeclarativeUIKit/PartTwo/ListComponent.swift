@@ -15,8 +15,8 @@ class ListComponent: UIView, Planned, ObjectRetainer {
     @Subject var text: String?
     @Subject var checked: Bool = false
     
-    lazy var checkButton: CheckButton = CheckButton()
-    lazy var label: UILabel = UILabel(font: .systemFont(ofSize: 18), textColor: .darkGray)
+    private lazy var checkButton: CheckButton = CheckButton()
+    private lazy var label: UILabel = UILabel(font: .systemFont(ofSize: 18), textColor: .darkGray)
     
     @LayoutPlan
     var viewPlan: ViewPlan {

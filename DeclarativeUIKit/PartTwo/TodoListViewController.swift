@@ -11,6 +11,8 @@ import UIKit
 
 class TodoListViewController: UIViewController, Planned {
     
+    lazy var addListField: AddListField = AddListField()
+    
     @LayoutPlan
     var viewPlan: ViewPlan {
         UIScrollView().drf
@@ -26,6 +28,9 @@ class TodoListViewController: UIViewController, Planned {
                         ListComponent(text: "Test 2")
                     }
             }
+        addListField.drf
+            .horizontal.equal(with: .safeArea)
+            .bottom.equal(with: .top(of: .keyboard))
     }
     
     override func viewDidLoad() {
