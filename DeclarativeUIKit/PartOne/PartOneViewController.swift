@@ -15,7 +15,7 @@ class PartOneViewController: UIViewController, Planned {
     
     @LayoutPlan
     var viewPlan: ViewPlan {
-        UIStackView(axis: .vertical, alignment: .fill, spacing: 8).drf
+        UIStackView(axis: .vertical, spacing: 8).drf
             .horizontal.equal(with: .safeArea).offset(by: 24)
             .top.moreThan(with: .safeArea).offset(by: 24)
             .bottom.moreThan(to: customField.drf.top)
