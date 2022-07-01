@@ -19,6 +19,8 @@ class TodoListViewController: UIViewController, Planned {
                 UIStackView(axis: .vertical, distribution: .equalSpacing, spacing: 8).drf
                     .width.equal(with: .parent)
                     .edges.equal(with: .parent)
+                    .builder.layoutMargins(UIEdgeInsets(horizontal: 24))
+                    .isLayoutMarginsRelativeArrangement(true)
             }
     }
     

@@ -29,13 +29,13 @@ class CustomField: UIView, Planned {
         didInit()
     }
     
-    func didInit() {
+    private func didInit() {
         addShadow()
         applyPlan()
         backgroundColor = .white
     }
     
-    func addShadow() {
+    private func addShadow() {
         layer.shadowOffset = CGSize(width: .zero, height: -4)
         layer.shadowRadius = 10
         layer.shadowOpacity = 0.1
