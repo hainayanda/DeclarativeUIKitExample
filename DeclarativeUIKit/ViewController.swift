@@ -31,11 +31,31 @@ class ViewController: UIViewController, Planned, ObjectRetainer {
         applyPlan()
         partOneButton
             .whenDidTapped { [unowned self] _ in
-                let partOne = PartOneViewController()
-                self.present(partOne, animated: true)
+                self.showInNavigation(for: PartOneViewController())
             }
             .observe(on: .main)
             .retained(by: self)
+        partTwoButton
+            .whenDidTapped { [unowned self] _ in
+                self.showInNavigation(for: TodoListViewController())
+            }
+            .observe(on: .main)
+            .retained(by: self)
+    }
+    
+    func showInNavigation(for viewController: UIViewController) {
+        let navigation = UINavigationController(rootViewController: viewController)
+        navigation.modalPresentationStyle = .fullScreen
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .close,
+            target: self,
+            action: #selector(dismissPresented)
+        )
+        self.present(navigation, animated: true)
+    }
+    
+    @objc func dismissPresented() {
+        dismiss(animated: true)
     }
     
 }

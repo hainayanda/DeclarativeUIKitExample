@@ -35,5 +35,6 @@ class CheckButton: UIButton, ObjectRetainer {
         }.whenDidSet { [unowned self] changes in
             self.setImage(changes.new, for: .normal)
         }.retained(by: self)
+            .fire()
     }
 }
