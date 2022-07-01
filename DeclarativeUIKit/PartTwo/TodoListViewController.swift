@@ -16,7 +16,8 @@ class TodoListViewController: UIViewController, Planned, ObjectRetainer {
     lazy var lists: [ListComponent] = [autoRemoveListComponent(text: "Test 1"), autoRemoveListComponent(text: "Test 1")]
     {
         didSet {
-            applyPlan()
+            applyPlanWhileAnimatingStack()
+
         }
     }
     
@@ -51,7 +52,11 @@ class TodoListViewController: UIViewController, Planned, ObjectRetainer {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "TODO LIST"
-        applyPlan()
+        applyPlanWhileAnimatingStack()
+        observeInput()
+    }
+    
+    private func observeInput() {
         addListField.$textReturned
             .compactMapped { $0 }
             .ignore { $0.new.isEmpty }
@@ -62,13 +67,26 @@ class TodoListViewController: UIViewController, Planned, ObjectRetainer {
             .retained(by: self)
     }
     
-    func autoRemoveListComponent(text: String) -> ListComponent {
+    private func autoRemoveListComponent(text: String) -> ListComponent {
         let listComponent = ListComponent(text: text)
+        listComponent.isHidden = true
+        listComponent.alpha = .zero
         listComponent.whenRemoveDidTap { [unowned self, weak listComponent] _ in
             self.lists.removeAll { $0 == listComponent }
         }
         .observe(on: .main)
         .retained(by: self)
         return listComponent
+    }
+    
+    private func applyPlanWhileAnimatingStack() {
+        self.applyPlan()
+        UIView.animate(withDuration: 0.25, delay: 0 , options: .curveEaseInOut) { [weak self] in
+            guard let self = self else { return }
+            for list in self.lists where list.isHidden {
+                list.isHidden = false
+                list.alpha = 1
+            }
+        }
     }
 }
