@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Draftsman
 import Pharos
+import Builder
 
 class ListComponent: UIView, Planned, ObjectRetainer {
     
@@ -17,17 +18,21 @@ class ListComponent: UIView, Planned, ObjectRetainer {
     
     private lazy var checkButton: CheckButton = CheckButton()
     private lazy var label: UILabel = UILabel(font: .systemFont(ofSize: 18), textColor: .darkGray)
+    private lazy var removeButton: UIButton = UIButton(type: .close)
     
     @LayoutPlan
     var viewPlan: ViewPlan {
-        checkButton.drf
-            .left.equal(with: .parent).offset(by: 12)
-            .vertical.moreThan(with: .parent).offset(by: 12)
-            .centerY.equal(with: .parent)
-            .width.equal(with: .height(of: .mySelf))
-        label.drf
-            .vertical.right.equal(with: .parent).offset(by: 12)
-            .left.equal(to: checkButton.drf.right).offset(by: 12)
+        UIStackView(axis: .horizontal, distribution: .fill, alignment: .center, spacing: 12).drf
+            .edges.equal(with: .parent).offset(by: 12)
+            .insertStacked {
+                checkButton.drf
+                    .size.equal(with: CGSize(sides: 20))
+                label
+                if checked {
+                    removeButton.drf
+                        .size.equal(with: CGSize(sides: 20))
+                }
+            }
     }
     
     init(text: String) {
@@ -41,8 +46,13 @@ class ListComponent: UIView, Planned, ObjectRetainer {
         didInit()
     }
     
+    func whenRemoveDidTap(thenDo work: @escaping (Changes<UIControl.Event>) -> Void) -> Observed<UIControl.Event> {
+        removeButton.whenDidTapped(thenDo: work)
+    }
+    
     private func didInit() {
         backgroundColor = .white
+        removeButton.titleLabel?.font = .systemFont(ofSize: 12)
         setupBorder()
         addShadow()
         bind()
@@ -68,6 +78,22 @@ class ListComponent: UIView, Planned, ObjectRetainer {
             .fire()
         
         $checked.bind(with: checkButton.$checked)
+            .observe(on: .main)
+            .retained(by: self)
+        
+        $checked
+            .mapped { checked in
+                checked ? UIColor.lightGray : UIColor.darkGray
+            }
+            .relayChanges(to: label.bindables.textColor)
+            .observe(on: .main)
+            .retained(by: self)
+        
+        $checked
+            .ignoreSameValue()
+            .whenDidSet { [unowned self] _ in
+                applyPlan()
+            }
             .observe(on: .main)
             .retained(by: self)
     }
