@@ -21,6 +21,8 @@ class TodoListViewController: UIViewController, Planned, ObjectRetainer {
         }
     }
     
+    // MARK: View
+    
     lazy var addListField: AddListField = AddListField()
     lazy var scrollView: UIScrollView = UIScrollView()
     lazy var stackView: UIStackView = builder(UIStackView(axis: .vertical, distribution: .equalSpacing, spacing: 8))
@@ -48,6 +50,8 @@ class TodoListViewController: UIViewController, Planned, ObjectRetainer {
             .bottom.equal(with: .top(of: .keyboard))
     }
     
+    // MARK: Override
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -55,6 +59,8 @@ class TodoListViewController: UIViewController, Planned, ObjectRetainer {
         applyPlanWhileAnimatingStack()
         observeInput()
     }
+    
+    // MARK: Private
     
     private func observeInput() {
         addListField.$textReturned
