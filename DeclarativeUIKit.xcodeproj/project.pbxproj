@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB2A58EC286D954600D749C1 /* Pharos in Frameworks */ = {isa = PBXBuildFile; productRef = BB2A58EB286D954600D749C1 /* Pharos */; };
+		BBA2E6DF286F55080055AE11 /* PartOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA2E6DE286F55080055AE11 /* PartOneViewController.swift */; };
 		BBA414AB285ACE60008BCAB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AA285ACE60008BCAB6 /* AppDelegate.swift */; };
 		BBA414AD285ACE60008BCAB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AC285ACE60008BCAB6 /* SceneDelegate.swift */; };
 		BBA414AF285ACE60008BCAB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA414AE285ACE60008BCAB6 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BBA2E6DE286F55080055AE11 /* PartOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOneViewController.swift; sourceTree = "<group>"; };
 		BBA414A7285ACE60008BCAB6 /* DeclarativeUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeclarativeUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA414AA285ACE60008BCAB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA414AC285ACE60008BCAB6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBA2E6E0286F550D0055AE11 /* PartOne */ = {
+			isa = PBXGroup;
+			children = (
+				BBA2E6DE286F55080055AE11 /* PartOneViewController.swift */,
+				BBA414DF285B4092008BCAB6 /* MyVeryLongText.swift */,
+				BBA414DD285AD9C0008BCAB6 /* CustomField.swift */,
+			);
+			path = PartOne;
+			sourceTree = "<group>";
+		};
+		BBA2E6E1286F57F90055AE11 /* PartTwo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PartTwo;
+			sourceTree = "<group>";
+		};
 		BBA4149E285ACE60008BCAB6 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +126,8 @@
 		BBA414A9285ACE60008BCAB6 /* DeclarativeUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				BBA2E6E1286F57F90055AE11 /* PartTwo */,
+				BBA2E6E0286F550D0055AE11 /* PartOne */,
 				BBA414AA285ACE60008BCAB6 /* AppDelegate.swift */,
 				BBA414AC285ACE60008BCAB6 /* SceneDelegate.swift */,
 				BBA414AE285ACE60008BCAB6 /* ViewController.swift */,
@@ -114,8 +135,6 @@
 				BBA414B3285ACE64008BCAB6 /* Assets.xcassets */,
 				BBA414B5285ACE64008BCAB6 /* LaunchScreen.storyboard */,
 				BBA414B8285ACE64008BCAB6 /* Info.plist */,
-				BBA414DD285AD9C0008BCAB6 /* CustomField.swift */,
-				BBA414DF285B4092008BCAB6 /* MyVeryLongText.swift */,
 			);
 			path = DeclarativeUIKit;
 			sourceTree = "<group>";
@@ -278,6 +297,7 @@
 			files = (
 				BBA414AF285ACE60008BCAB6 /* ViewController.swift in Sources */,
 				BBA414AB285ACE60008BCAB6 /* AppDelegate.swift in Sources */,
+				BBA2E6DF286F55080055AE11 /* PartOneViewController.swift in Sources */,
 				BBA414AD285ACE60008BCAB6 /* SceneDelegate.swift in Sources */,
 				BBA414DE285AD9C0008BCAB6 /* CustomField.swift in Sources */,
 				BBA414E0285B4092008BCAB6 /* MyVeryLongText.swift in Sources */,

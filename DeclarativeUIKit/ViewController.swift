@@ -7,41 +7,36 @@
 
 import UIKit
 import Draftsman
+import Pharos
 
-class ViewController: UIViewController, Planned {
+class ViewController: UIViewController, Planned, ObjectRetainer {
     
-    lazy var customField: CustomField = CustomField()
+    lazy var partOneButton: UIButton = UIButton(text: "Tap for part 1", textColor: .black)
+    lazy var partTwoButton: UIButton = UIButton(text: "Tap for part 2", textColor: .black)
     
     @LayoutPlan
     var viewPlan: ViewPlan {
         UIStackView(axis: .vertical, alignment: .fill, spacing: 8).drf
+            .centerY.equal(with: .safeArea)
             .horizontal.equal(with: .safeArea).offset(by: 24)
-            .top.moreThan(with: .safeArea).offset(by: 24)
-            .bottom.moreThan(to: customField.drf.top)
-            .centerY.lessThan(with: .safeArea)
+            .vertical.moreThan(with: .safeArea).offset(by: 24)
             .insertStacked {
-                centeredLabel(text: "Hello World", font: .boldSystemFont(ofSize: 24))
-                centeredLabel(text: "Lorem ipsum dolor sit amet", font: .systemFont(ofSize: 18))
-                centeredLabel(text: myVeryLongText, font: .systemFont(ofSize: 12))
+                partOneButton
+                partTwoButton
             }
-        customField.drf
-            .horizontal.equal(with: .parent)
-            .bottom.equal(with: .top(of: .keyboard))
-    }
-    
-    @LayoutPlan
-    func centeredLabel(text: String, font: UIFont) -> ViewPlan {
-        UILabel(text: text, font: font).drf
-            .resistVerticalCompression(.defaultHigh)
-            .builder
-            .numberOfLines(0)
-            .textAlignment(.center)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         applyPlan()
+        partOneButton
+            .whenDidTapped { [unowned self] _ in
+                let partOne = PartOneViewController()
+                self.present(partOne, animated: true)
+            }
+            .observe(on: .main)
+            .retained(by: self)
     }
-
+    
 }
 
